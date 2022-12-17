@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org">
+<head th:fragment="head">
+<meta charset="UTF-8">
+<link rel="shortcut icon" type="image/png"
+	th:href="@{/images/favicon.png}" />
+<link rel="stylesheet" href="/css/inicio.css">
+<title>Inicio</title>
+</head>
+<body>
+	<div class="container">
+		<!-- Encabezado -->
+		<header th:fragment="header-user" th:if="${sesion==null}">
+			<div class="container-logo">
+				<section id="logo">
+					<img th:src="@{'/images/Dark.png'}" alt="Logo">
+				</section>
+			</div>
+			<nav>
+				<ul>
+					<li><a href="/App/inicio">Inicio</a></li>
+					<li><a href="/App/Productos">Productos</a></li>
+					<li><a href="/App/Login">Login</a></li>
+					<li><a href="#">¿Quiénes somos?</a></li>
+					<li><a href="/App/CarritodeCompras">Carrito de Compras</a></li>
+					
+		<!--  		<li><a href="/App/AddProducto">Añadir P</a></li> -->	
+				</ul>
+			</nav>
+		</header>
+		
+		<header th:fragment="header-user" th:unless="${sesion==null}">
+			<div class="container-logo">
+				<section id="logo">
+					<img th:src="@{'/images/Dark.png'}" alt="Logo">
+				</section>
+			</div>
+			<nav>
+				<ul>
+					<li><a href="/App/inicio">Inicio</a></li>
+					<li><a href="/App/Productos">Productos</a></li>
+					<li><a href="#">¿Quiénes somos?</a></li>
+					<li><a href="/App/CarritodeCompras">Carrito de Compras</a></li>
+					<li><div class="dropdown">
+  <button class="dropbtn">USER</button>
+  <div class="dropdown-content">
+    <a href="/App/MisCompras">Mis compras</a>
+        <a href="/App/cerrar">Cerrar Sesión</a>
+    
+  </div>
+</div>
+</li>
+		<!--  		<li><a href="/App/AddProducto">Añadir P</a></li> -->	
+				</ul>
+			</nav>
+		</header>
+
+		<!-- Información -->
+		<div class="informacion">
+			
+				<!-- columna izquierda -->
+				<div class="col">
+					<h1 id="nombre">
+						Enchufe Solar <br> SP 0-92
+					</h1>
+					<p id="introduccion">¿Te puedes imaginar un enchufe solar con
+						el que puedas producir electricidad para ciertos
+						electrodomésticos? ¿Conoces los enchufes solares de las ventanas?
+						Si te parece interesante el tema, te recomendamos que leas este
+						artículo.</p>
+					<button>Ver más</button>
+				</div>
+
+				<!-- Columna derecha -->
+				<div class="col-imagen">
+					<div class="imagen-principal" id="imagen">
+						<img th:src="@{'/images/enchufe.png'}" alt="" id="imagenPrincipal">
+					</div>
+				</div>
+	
+		</div>
+
+		<div class="rectangulo">
+			<!-- Columna izquierda -->
+			<div class="colum">
+				<h2 id="nombre">Cumpliendo Objetivos...</h2>
+				<p id="descripcion">Los Objetivos de Desarrollo Sostenible (ODS)
+					constituyen un llamamiento universal a la acción para poner fin a
+					la pobreza, proteger el planeta y mejorar las vidas y las
+					perspectivas de las personas en todo el mundo.</p>
+			</div>
+
+			<!-- Columna derecha -->
+			<div class="colum-imagen">
+				
+					<img th:src="@{'/images/Logo1.png'}" alt="" id="Logo1" class="logos"> <img
+						th:src="@{'/images/Logo2.png'}" alt="" id="Logo2" class="logos"> <img
+						th:src="@{'/images/Logo3.png'}" alt="" id="Logo3" class="logos"> <img
+						th:src="@{'/images/Logo4.png'}" alt="" id="Logo4" class="logos"> <img
+						th:src="@{'/images/Logo5.png'}" alt="" id="Logo5" class="logos"> <img
+						th:src="@{'/images/Logo6.png'}" alt="" id="Logo6" class="logos"> <img
+						th:src="@{'/images/Logo7.png'}" alt="" id="Logo7" class="logos">
+			
+			</div>
+		</div>
+
+		<div class="servicios">
+		<div class="miTitulo">
+			<h3 id="nombre">Nuestros Servicios</h3></div>
+			<div class="opcion">
+				<div class="cuadrado color1"><a href="#">
+					<img th:src="@{'/images/isvc1.png'}" alt="">
+				</div>
+				<h4>Productos</h4>
+				<p>Cargadores Solares, paneles, molinos eólicos y más...</p></a>
+			</div>
+			<div class="opcion">
+				<div class="cuadrado color2"><a href="#">
+					<img th:src="@{'/images/isvc2.png'}" alt="">
+				</div>
+				<h4>Mantenimiento y Asistencia</h4>
+				<p>Si tienes algún problema con u producto relacionado a energía
+					renovable, nosotros podemos ayudarte.</p></a>
+			</div>
+			<div class="opcion">
+				<div class="cuadrado color3"><a href="#">
+					<img th:src="@{'/images/iscv3.png'}" alt="">
+				</div>
+				<h4>Contáctanos</h4>
+				<p>Si tienes alguna duda o quieres sumarte al equipo, comunícate
+					con nosotros para poder ayudarte.</p></a>
+			</div>
+		</div>
+	</div>
+	<footer class="piePage" th:fragment="footer">
+		<div class="grupo--1">
+			<div class="box-footer"><figure>
+				<a href="#"><img src="/images/logo_sin_fondo.png" alt=""></a>
+			</figure></div>
+			<div class="box-footer">
+				<h2>SOBRE NOSOTROS</h2>
+				<p>Somos un grupo empresarial peruano con un proyecto innovador que consiste en implementar en una pagina web la venta, reparacion e instalacion de paneles solares en hogares, empresas, centros de estudios, etc. Para asi poder cubrir la necesidad de cualquier usuario y que pueda tener energia disponible cuando lo necesite, ya sea de noche o si la red electrica cae con frecuencia.</p>
+			</div>
+			<div class="box-footer">
+				<h2>SIGUENOS</h2>
+				<div class="red-social">
+					<a href="#" class="fa fa-facebook"></a>
+					<a href="#" class="fa fa-instagram"></a>
+					<a href="#" class="fa fa-twitter"></a>
+				</div>
+		</div>
+	</div>
+	<div class="grupo--2"><small>&copy; 2022 <b>Solarsi</b> - Todos los derechos reservados</small></div>
+<script src="https://kit.fontawesome.com/94e06964eb.js" crossorigin="anonymous"></script>
+	</footer>
+	
+</body>
+</html>

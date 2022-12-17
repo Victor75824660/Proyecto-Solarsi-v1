@@ -1,0 +1,14 @@
+<h1 style="text-align: center;"><span style="text-decoration: underline; color: #ff6600;">ACERCA DE NOSOTROS</span></h1>
+<h2 style="text-align: left;"><span style="color: #ffcc00;">QUIENES SOMOS</span></h2>
+<p style="text-align: justify;"><span style="background-color: #ffff99;">Somos un grupo empresarial peruano con un proyecto innovador que consiste en implementar en una pagina web la venta, reparacion e instalacion de paneles solares en hogares, empresas, centros de estudios, etc. Para asi poder cubrir la necesidad de cualquier usuario y que pueda tener energia disponible cuando lo necesite, ya sea de noche o si la red electrica cae con frecuencia.</span></p>
+<h3 style="text-align: left;"><span style="color: #33cccc;">VISION</span></h3>
+<p style="text-align: justify;"><span style="background-color: #ccffff;">Somos un grupo de peruanos con una clara vision: hacer negocios, crear oportunidades, innovar junto al pais y ser lideres en la region.</span></p>
+<h3 style="text-align: left;"><span style="color: #33cccc;">MISION</span></h3>
+<p style="text-align: justify;"><span style="background-color: #ccffff;">Somos un conjunto de empresas lideres comprometidas con brindar servicios y productos de calidad a mercados locales y extranjeros. Sobre la base de la austeridad, el esfuerzo, la transparencia y la union, buscamos crecer y sobrepasar nuestras metas para la satisfaccion de todos nuestros publicos interesados.</span></p>
+<h3 style="text-align: left;"><span style="color: #3366ff;">PRINCIPIOS FUNDAMENTALES:</span></h3>
+<ul>
+<li><span style="background-color: #99ccff;">CALIDAD</span></li>
+<li><span style="background-color: #99ccff;">FE EN EL PAIS</span></li>
+<li><span style="background-color: #99ccff;">ETICA Y VALORES</span></li>
+<li><span style="background-color: #99ccff;">RESPONSABILIDAD SOCIAL</span></li>
+</ul>

@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org">
+<head th:fragment="head">
+<meta charset="UTF-8">
+<link rel="shortcut icon" type="image/png"
+	th:href="@{/images/favicon.png}" />
+<link rel="stylesheet" href="/css/inicio2.css">
+<link rel="stylesheet" href="/bootstrap/bootstrap.min.css">
+<title>Añadir Producto</title>
+</head>
+<body>
+	<div class="contenedor">
+	
+		<!-- Encabezado -->
+		<header th:fragment="header-admin" class="header3">
+			<div class="contenedor-logo">
+				<section id="logo">
+					<img th:src="@{'/images/Dark.png'}" alt="Logo">
+				</section>
+			</div>
+			<nav class="anver">
+				<ul >
+					
+					
+					
+					
+					<li><a href="/App/AddProducto">Añadir Producto</a></li>
+					
+					<li><a href="/App/AddProducto">Mostar Ordenes</a></li>
+					<li><div class="dropdown">
+							<button class="dropbtn">ADMIN</button>
+							<div class="dropdown-content">
+								    <a href="/App/cerrar">Cerrar Sesión</a>
+
+								
+							</div>
+						</div></li>
+
+				</ul>
+			</nav>
+		</header>
+		
+		
+		<div class="jumbotron ">
+		<h1 style="text-align: center;">Ordenes Recibidas</h1>
+		<br>
+				<table class="table table-dark" >
+					<thead >
+						<tr style="text-align: center;">
+							<th scope="col">Id</th>
+							<th scope="col">Fecha</th>
+							<th scope="col">Total</th>
+							<th scope="col">Acciones</th>
+						
+						</tr>
+					</thead>
+					<tbody style="text-align: center;">
+						<tr th:each="listOrden : ${listOrder}">
+							<th th:text="${listOrden.numero}" ></th>
+							<td th:text="${listOrden.fechaCreacion}"></td>
+							<td th:text="${listOrden.total}"></td>
+						
+							<td><a  th:href="@{/App/detalleOrdenAdmin/}+ ${listOrden.id}" class="btn btn-success">Ver Detalle</a> </td>
+						</tr>
+
+					</tbody>
+				</table>
+
+
+			</div>
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		</div>
+		
+		
+	<script src="/bootstrap/jquery.slim.min.js"></script>
+	<script src="/bootstrap/bootstrap.bundle.min.js"></script>
+	<!-- ESTO ES EL FOOTER -->
+<footer class="piePage" th:fragment="footer">
+		<div class="grupo--1">
+			<div class="box-footer"><figure>
+				<a href="#"><img src="/images/logo_sin_fondo.png" alt=""></a>
+			</figure></div>
+			<div class="box-footer">
+				<h2>SOBRE NOSOTROS</h2>
+				<p>Somos un grupo empresarial peruano con un proyecto innovador que consiste en implementar en una pagina web la venta, reparacion e instalacion de paneles solares en hogares, empresas, centros de estudios, etc. Para asi poder cubrir la necesidad de cualquier usuario y que pueda tener energia disponible cuando lo necesite, ya sea de noche o si la red electrica cae con frecuencia.</p>
+			</div>
+			<div class="box-footer">
+				<h2>SIGUENOS</h2>
+				<div class="red-social">
+					<a href="#" class="fa fa-facebook"></a>
+					<a href="#" class="fa fa-instagram"></a>
+					<a href="#" class="fa fa-twitter"></a>
+				</div>
+		</div>
+	</div>
+	<div class="grupo--2"><small>&copy; 2022 <b>Solarsi</b> - Todos los derechos reservados</small></div>
+<script src="https://kit.fontawesome.com/94e06964eb.js" crossorigin="anonymous"></script>
+	</footer>
+	
+	
+<!-- ESTO ES EL FOOTER -->
+
+
+
+
+</body>
+
+</html>

@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org">
+<head th:fragment="head">
+<meta charset="UTF-8">
+<link rel="shortcut icon" type="image/png"
+	th:href="@{/images/favicon.png}" />
+<link rel="stylesheet" href="/css/inicio2.css">
+<link rel="stylesheet" href="/bootstrap/bootstrap.min.css">
+<title>Añadir Producto</title>
+</head>
+<body>
+	<div class="contenedor">
+	
+		<!-- Encabezado -->
+		<header th:fragment="header-admin" class="header3">
+			<div class="contenedor-logo">
+				<section id="logo">
+					<img th:src="@{'/images/Dark.png'}" alt="Logo">
+				</section>
+			</div>
+			<nav class="anver">
+				<ul >
+					
+					
+					
+					
+					<li><a href="/App/AddProducto">Añadir Producto</a></li>
+					
+					<li><a href="/App/AddProducto">Mostar Ordenes</a></li>
+					<li><div class="dropdown">
+							<button class="dropbtn">ADMIN</button>
+							<div class="dropdown-content">
+								    <a href="/App/cerrar">Cerrar Sesión</a>
+
+								
+							</div>
+						</div></li>
+
+				</ul>
+			</nav>
+		</header>
+		
+		
+		
+		
+		 <div class="card mb-4">
+        <div class="card-body">
+          <div class="row">
+           <div class="col-lg-9">
+             <div class="card-body">
+              <h5 class="card-title">
+                DATOS ORDEN
+              </h5>
+              <h6 th:text="'Nombres:  ' +  ${dataUser.nombres}"></h6>
+              <h6 th:text="'DNI:  ' +  ${dataUser.dni}"></h6>
+              <h6 th:text="'Celular:  ' +  ${dataUser.celular}">Celular</h6>
+              <h6 th:text="'Dirección:  ' +  ${dataUser.direccion}"></h6> 
+              
+<br>
+              <h5 class="card-title">
+                PRODUCTOS
+              </h5>
+              <div class="alert alert-light" role="alert">
+                <table class="table">
+                  <thead>
+                    <tr >
+                      <th scope="col">Producto</th>
+                      <th scope="col">Precio</th>
+                      <th scope="col">Cantidad</th>
+                      <th scope="col">Total</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr th:each="det : ${detail}">
+                    
+					<td th:text="${det.nombre}"></td>
+					<td th:text="${det.precio}"></td>
+					 <td th:text="${det.cantidad}"></td>
+					<td th:text="${det.total}"> </td>
+
+                   </tr>
+                 </tbody>
+               </table>
+             </div>
+
+           </div>	
+         </div>
+		
+		
+		
+		
+		  </div>
+         </div>
+		 </div>
+		
+		
+		</div>
+	<script src="/bootstrap/jquery.slim.min.js"></script>
+	<script src="/bootstrap/bootstrap.bundle.min.js"></script>
+	<!-- ESTO ES EL FOOTER -->
+<footer class="piePage" th:fragment="footer">
+		<div class="grupo--1">
+			<div class="box-footer"><figure>
+				<a href="#"><img src="/images/logo_sin_fondo.png" alt=""></a>
+			</figure></div>
+			<div class="box-footer">
+				<h2>SOBRE NOSOTROS</h2>
+				<p>Somos un grupo empresarial peruano con un proyecto innovador que consiste en implementar en una pagina web la venta, reparacion e instalacion de paneles solares en hogares, empresas, centros de estudios, etc. Para asi poder cubrir la necesidad de cualquier usuario y que pueda tener energia disponible cuando lo necesite, ya sea de noche o si la red electrica cae con frecuencia.</p>
+			</div>
+			<div class="box-footer">
+				<h2>SIGUENOS</h2>
+				<div class="red-social">
+					<a href="#" class="fa fa-facebook"></a>
+					<a href="#" class="fa fa-instagram"></a>
+					<a href="#" class="fa fa-twitter"></a>
+				</div>
+		</div>
+	</div>
+	<div class="grupo--2"><small>&copy; 2022 <b>Solarsi</b> - Todos los derechos reservados</small></div>
+<script src="https://kit.fontawesome.com/94e06964eb.js" crossorigin="anonymous"></script>
+	</footer>
+	
+	
+<!-- ESTO ES EL FOOTER -->
+
+
+
+
+</body>
+
+</html>

@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Login</title>
+<link rel="shortcut icon" type="image/png" th:href="@{/images/favicon.png}"/>
+<link rel="stylesheet" type="text/css" href="/css/Form.css" > <!--  --> 
+<script type="text/javascript" th:src="@{/js/form.js}"></script>
+</head>
+<body>
+<div class="contenedor">
+			<!--Barra de Navegacion-->
+			<header>
+				<div class="container-logo">
+					<section id="logo">
+						<img th:src="@{'/images/Dark.png'}" alt="Logo">
+					</section>
+				</div>
+				<nav>
+					<ul>
+						<li><a href="/App/inicio">Inicio</a></li>
+						<li><a href="/App/Productos">Productos</a></li>
+						<li><a href="/App/Login">Login</a></li>
+						<li><a href="#">¿Quiénes somos?</a></li>
+						<li><a href="/App/CarritodeCompras">Carrito de Compras</a></li>
+						<li><a href="/App/Integrantes">Integrantes</a></li>
+					</ul>
+				</nav>
+			</header>
+		</div>
+		<div class="body22">
+<div class="container right-panel-active" id="container"> <!-- Para intercambiar las páginas se debe agregar "right-panel-active" para el Registro o quitar para el Login-->
+	<div class="form-container sign-up-container">
+				<form th:action="@{/App/crearUsuario}" method="post"
+					th:object="${custom}">
+					<h1>Crear una cuenta</h1>
+				 <input name="nombres" id="idNombres" type="text" 
+						autocomplete="off" th:field="*{nombres}" placeholder="Nombres" required/>
+					<div role="alert" th:if="${#fields.hasErrors('nombres')}" th:errors="*{nombres}"></div>
+					<input name="dni" id="idDNI" type="text" required
+						autocomplete="off" th:field="*{dni}" placeholder="DNI" maxlength="8" />
+					<div role="alert" th:if="${#fields.hasErrors('dni')}" th:errors="*{dni}" ></div>
+					<input name="celular" id="idCelular" type="text" 
+						autocomplete="off" th:field="*{celular}" required
+						placeholder="Número de celular" />
+					<div role="alert" th:if="${#fields.hasErrors('celular')}"
+						th:errors="*{celular}"></div>
+						
+						<input name="direccion" id="iddireccion" type="text" 
+						autocomplete="off" th:field="*{direccion}" required
+						placeholder="Dirección de envío" />
+					<div role="alert" th:if="${#fields.hasErrors('direccion')}"
+						th:errors="*{direccion}"></div>
+						
+					<input name="email" id="idEmail" type="email"  required
+						autocomplete="off" th:field="*{email}" placeholder="E-mail" />
+					<div role="alert" th:if="${#fields.hasErrors('email')}"
+						th:errors="*{email}"></div>
+					<input name="password" id="idPassword" type="password"  required
+						autocomplete="off" placeholder="Contraseña" />
+					<div role="alert" th:if="${#fields.hasErrors('password')}"
+						th:errors="*{password}"></div>
+					<br>
+					<button type="submit" th:onclick="window.alert(${Mensaje})">Registrarse</button>
+				</form>
+				<p th:text="${Mensaje}"></p>
+				
+
+			</div>
+	
+	<div class="overlay-container">
+		<div class="overlay">
+			<div class="overlay-panel overlay-left">
+				
+				<h1>Bienvenido de nuevo!</h1>
+				<p>Para mantenerse conectado con nosotros, inicie sesión con su cuenta.</p>
+				<a href="/App/Login"><button class="ghost" id="signUp">Iniciar Sesión</button></a>
+				
+			</div>
+			<div class="overlay-panel overlay-right">
+				<h1>Hola!</h1>
+				<p>Ingresa tus datos personales y comienza tu viaje con nosotros.</p>
+				<a href="/App/Register"><button class="ghost" id="signIn" >Registrarse</button> </a>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+<script src="https://kit.fontawesome.com/94e06964eb.js" crossorigin="anonymous"></script>
+</div>
+<footer class="piePage">
+		<div class="grupo--1">
+			<div class="box-footer"><figure>
+				<a href="#"><img src="/images/logo_sin_fondo.png" alt=""></a>
+			</figure></div>
+			<div class="box-footer">
+				<h2>SOBRE NOSOTROS</h2>
+				<p>Somos un grupo empresarial peruano con un proyecto innovador que consiste en implementar en una pagina web la venta, reparacion e instalacion de paneles solares en hogares, empresas, centros de estudios, etc. Para asi poder cubrir la necesidad de cualquier usuario y que pueda tener energia disponible cuando lo necesite, ya sea de noche o si la red electrica cae con frecuencia.</p>
+			</div>
+			<div class="box-footer">
+				<h2>SIGUENOS</h2>
+				<div class="red-social">
+					<a href="#" class="fa fa-facebook"></a>
+					<a href="#" class="fa fa-instagram"></a>
+					<a href="#" class="fa fa-twitter"></a>
+				</div>
+		</div>
+	</div>
+	<div class="grupo--2"><small>&copy; 2022 <b>Solarsi</b> - Todos los derechos reservados</small></div>
+
+	</footer>
+</body>
+</html>

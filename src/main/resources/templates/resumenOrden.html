@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Carrito | Solarsi</title>
+<link rel="shortcut icon" type="image/png"
+	th:href="@{/images/favicon.png}" />
+<link rel="stylesheet" type="text/css"
+	href="/bootstrap/bootstrap.min.css">
+<link rel="stylesheet" href="/css/carrito.css">
+</head>
+<body>
+	<div class="contenedor-global">
+		<div class="contenedor">
+			<!--Barra de Navegacion-->
+			<header th:fragment="header-user" th:if="${sesion==null}">
+			<div class="container-logo">
+				<section id="logo">
+					<img th:src="@{'/images/Dark.png'}" alt="Logo">
+				</section>
+			</div>
+			<nav>
+				<ul>
+					<li><a href="/App/inicio">Inicio</a></li>
+					<li><a href="/App/Productos">Productos</a></li>
+					<li><a href="/App/Login">Login</a></li>
+					<li><a href="#">¿Quiénes somos?</a></li>
+					<li><a href="/App/CarritodeCompras">Carrito de Compras</a></li>
+					
+		<!--  		<li><a href="/App/AddProducto">Añadir P</a></li> -->	
+				</ul>
+			</nav>
+		</header>
+		
+		<header th:fragment="header-user" th:unless="${sesion==null}">
+			<div class="container-logo">
+				<section id="logo">
+					<img th:src="@{'/images/Dark.png'}" alt="Logo">
+				</section>
+			</div>
+			<nav>
+				<ul>
+					<li><a href="/App/inicio">Inicio</a></li>
+					<li><a href="/App/Productos">Productos</a></li>
+					<li><a href="#">¿Quiénes somos?</a></li>
+					<li><a href="/App/CarritodeCompras">Carrito de Compras</a></li>
+					<li><div class="dropdown">
+  <button class="dropbtn">USER</button>
+  <div class="dropdown-content">
+    
+    <a href="/App/MisCompras">Mis compras</a>
+     <a href="/App/cerrar">Cerrar Sesión</a>
+    
+  </div>
+</div>
+</li>
+		<!--  		<li><a href="/App/AddProducto">Añadir P</a></li> -->	
+				</ul>
+			</nav>
+		</header>
+			
+			
+			
+			 <div class="container">
+      <!-- Page Heading/Breadcrumbs -->
+      <h1 class="mt-4 mb-3">
+        Spring eCommerce <small>Resumen de la orden</small>
+      </h1>
+
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a th:href="@{/App/Productos}">Productos</a></li>
+        <li class="breadcrumb-item"><a th:href="@{/App/CarritodeCompras}">Carrito de Compras</a></li>
+			<li class="breadcrumb-item active"> Ordenar</li>
+      </ol>
+
+      <!-- Blog Post -->
+      <div class="card mb-4">
+        <div class="card-body">
+          <div class="row">
+           <div class="col-lg-9">
+             <div class="card-body">
+              <h5 class="card-title">
+                DATOS ORDEN
+              </h5>
+              <h6 th:text="'Nombres:  ' +  ${user.nombres}"></h6>
+              <h6 th:text="'DNI:  ' +  ${user.dni}"></h6>
+              <h6 th:text="'Celular:  ' +  ${user.celular}">Celular</h6>
+              <h6 th:text="'Dirección:  ' +  ${user.direccion}"></h6> 
+              
+<br>
+              <h5 class="card-title">
+                PRODUCTOS
+              </h5>
+              <div class="alert alert-light" role="alert">
+                <table class="table">
+                  <thead>
+                    <tr>
+                      <th scope="col">Producto</th>
+                      <th scope="col">Precio</th>
+                      <th scope="col">Cantidad</th>
+                      <th scope="col">Total</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr th:each="order : ${cartera}">
+                     <td th:text="${order.nombre}"></td>
+					<td th:text="${order.precio}"></td>
+					<td th:text="${order.cantidad}"></td>
+					<td th:text="${order.total}"> </td>
+
+                   </tr>
+                 </tbody>
+               </table>
+             </div>
+
+           </div>
+         </div>
+
+
+         <div class="col-lg-3">
+          <h3 class="card-title">Resumen Orden</h3>
+
+          <ul class="list-group"> 
+            <li class="list-group-item"><h5 th:text="'Total: ' + ${TotalF.total}" style="font-weight: 700"> </h5></li>
+            <br>
+            <p style="color:gray; text-align: center;font-weight: 900;">Pulsar para finalizar</p>
+            <a  class="btn btn-dark" th:href="@{/App/saveOrder}" >Finalizar</a>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  </div>
+  <!-- /.container -->
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			</div>
+						</div>
+
+
+	<footer class="piePage">
+		<div class="grupo--1">
+			<div class="box-footer"><figure>
+				<a href="#"><img src="/images/logo_sin_fondo.png" alt=""></a>
+			</figure></div>
+			<div class="box-footer">
+				<h2>SOBRE NOSOTROS</h2>
+				<p>Somos un grupo empresarial peruano con un proyecto innovador que consiste en implementar en una pagina web la venta, reparacion e instalacion de paneles solares en hogares, empresas, centros de estudios, etc. Para asi poder cubrir la necesidad de cualquier usuario y que pueda tener energia disponible cuando lo necesite, ya sea de noche o si la red electrica cae con frecuencia.</p>
+			</div>
+			<div class="box-footer">
+				<h2>SIGUENOS</h2>
+				<div class="red-social">
+					<a href="#" class="fa fa-facebook"></a>
+					<a href="#" class="fa fa-instagram"></a>
+					<a href="#" class="fa fa-twitter"></a>
+				</div>
+		</div>
+	</div>
+	<div class="grupo--2"><small>&copy; 2022 <b>Solarsi</b> - Todos los derechos reservados</small></div>
+
+	</footer>
+	<script src="https://kit.fontawesome.com/94e06964eb.js" crossorigin="anonymous"></script>
+</body>
+</body>
+</html>

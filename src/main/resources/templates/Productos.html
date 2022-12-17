@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title >Productos</title>
+<link rel="shortcut icon" type="image/png" th:href="@{/images/favicon.png}"/>
+<link rel="stylesheet" type="text/css" th:href="@{/css/productos.css}"/>
+</head>
+<body>
+<div class="contenedor-global">
+<div class="container"><!--Barra de Navegacion-->
+		<header th:fragment="header-user" th:if="${sesion==null}">
+			<div class="container-logo">
+				<section id="logo">
+					<img th:src="@{'/images/Dark.png'}" alt="Logo">
+				</section>
+			</div>
+			<nav>
+				<ul>
+					<li><a href="/App/inicio">Inicio</a></li>
+					<li><a href="/App/Productos">Productos</a></li>
+					<li><a href="/App/Login">Login</a></li>
+					<li><a href="#">¿Quiénes somos?</a></li>
+					<li><a href="/App/CarritodeCompras">Carrito de Compras</a></li>
+					
+		<!--  		<li><a href="/App/AddProducto">Añadir P</a></li> -->	
+				</ul>
+			</nav>
+		</header>
+		
+		<header th:fragment="header-user" th:unless="${sesion==null}">
+			<div class="container-logo">
+				<section id="logo">
+					<img th:src="@{'/images/Dark.png'}" alt="Logo">
+				</section>
+			</div>
+			<nav>
+				<ul>
+					<li><a href="/App/inicio">Inicio</a></li>
+					<li><a href="/App/Productos">Productos</a></li>
+					<li><a href="#">¿Quiénes somos?</a></li>
+					<li><a href="/App/CarritodeCompras">Carrito de Compras</a></li>
+					<li><div class="dropdown">
+  <button class="dropbtn">USER</button>
+  <div class="dropdown-content">
+    
+    <a href="/App/MisCompras">Mis compras</a>
+     <a href="/App/cerrar">Cerrar Sesión</a>
+    
+  </div>
+</div>
+</li>
+		<!--  		<li><a href="/App/AddProducto">Añadir P</a></li> -->	
+				</ul>
+			</nav>
+		</header>
+	<div class="Cuerpo"><!-- Cuerpo -->
+		<div class="titulo">
+			<h1 style="text-decoration: none;">Catálogo de productos</h1>
+		</div>
+		<div class="buscador"> 
+		 <form id="form"  method="post" th:action="@{/App/buscarProducto}">
+        <input type="search"  id="buscadorPrincipal" placeholder="Busca un producto" name="nombre" autocomplete="off">
+        <button 	type="submit" ></button>
+      </form>
+      </div>
+		<div  class="campoProductosOferta">
+		<div class="tittle">
+			<h2 >Productos en oferta</h2>
+			</div>
+			<div class="grupoProductos">
+				<div class="campoProducto"  th:each="producto : ${productos}">
+					<img th:src="${producto.uriImagen}" width="270" height="300">
+					<div class="a22">
+					<h3 th:text="${producto.Nombre_p}">name</h3>
+					</div>
+					<a type="button" class="botonT" th:href="@{/App/detailProducto/}+ ${producto.id}">Ver más</a>
+					
+				</div>
+				
+			</div>
+		</div>
+		<hr>
+		<div class="campoMasVendidos">
+		<div class="tittle">
+		<h2>Productos mas vendidos</h2>
+		</div>
+			<div class="grupoProductos">
+				<div class="campoProducto">
+					<img th:src="@{'/images/panel4.jpg'}" width="270" height="300">
+					<h3>name</h3>
+					<h4>precio</h4>
+				</div>
+				
+				
+				
+			</div>
+		</div>
+		<hr>
+		<div class="campoInteres">
+		<div class="tittle">
+			<h2>Te puede interesar</h2>
+			</div>
+			<div class="grupoProductos" >
+				<div class="campoProducto" >
+					<img th:src="@{'/images/panel8.jpg'}" width="270" height="300">
+					<h3>name</h3>
+					<h4>precio</h4>
+				</div>
+				
+			</div>
+		
+		</div>
+	</div>
+	</div>
+	</div>
+	<footer class="piePage">
+		<div class="grupo--1">
+			<div class="box-footer"><figure>
+				<a href="#"><img src="/images/logo_sin_fondo.png" alt=""></a>
+			</figure></div>
+			<div class="box-footer">
+				<h2>SOBRE NOSOTROS</h2>
+				<p>Somos un grupo empresarial peruano con un proyecto innovador que consiste en implementar en una pagina web la venta, reparacion e instalacion de paneles solares en hogares, empresas, centros de estudios, etc. Para asi poder cubrir la necesidad de cualquier usuario y que pueda tener energia disponible cuando lo necesite, ya sea de noche o si la red electrica cae con frecuencia.</p>
+			</div>
+			<div class="box-footer">
+				<h2>SIGUENOS</h2>
+				<div class="red-social">
+					<a href="#" class="fa fa-facebook"></a>
+					<a href="#" class="fa fa-instagram"></a>
+					<a href="#" class="fa fa-twitter"></a>
+				</div>
+		</div>
+	</div>
+	<div class="grupo--2"><small>&copy; 2022 <b>Solarsi</b> - Todos los derechos reservados</small></div>
+
+	</footer>
+	<script src="https://kit.fontawesome.com/94e06964eb.js" crossorigin="anonymous"></script>
+</body>
+</html>

@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org">
+<head th:fragment="head">
+<meta charset="UTF-8">
+<link rel="shortcut icon" type="image/png"
+	th:href="@{/images/favicon.png}" />
+<link rel="stylesheet" href="/css/inicio2.css">
+<link rel="stylesheet" href="/bootstrap/bootstrap.min.css">
+<title>Añadir Producto</title>
+</head>
+<body>
+	<div class="contenedor">
+	
+		<!-- Encabezado -->
+		<header th:fragment="header-admin" class="header3">
+			<div class="contenedor-logo">
+				<section id="logo">
+					<img th:src="@{'/images/Dark.png'}" alt="Logo">
+				</section>
+			</div>
+			<nav class="anver">
+				<ul >
+					
+					
+					
+					
+					<li><a href="/App/AddProducto">Añadir Producto</a></li>
+					
+					<li><a href="/App/OrdenesUser">Mostar Ordenes</a></li>
+					<li><div class="dropdown">
+							<button class="dropbtn">ADMIN</button>
+							<div class="dropdown-content">
+								    <a href="/App/cerrar">Cerrar Sesión</a>
+
+								
+							</div>
+						</div></li>
+
+				</ul>
+			</nav>
+		</header>
+		
+		<!-- Encabezado -->
+
+<div class="container">
+		<div class="jumbotron mt-5">
+		<h1>Añadir un producto</h1>
+		<div th:if=${param.exito}>
+					<div class="alert alert-success" role="alert">Se registró el producto correctamente</div>
+				</div> 
+			<form th:action="@{/App/añadirProducto}" method="post" th:object="${producto}" enctype="multipart/form-data">
+				
+				<br>
+					<div class="form-row">
+						<div class="form-group col-md-6">
+							<!-- Los TH:VALUE Indican la persistencia de los datos dentro de los inputs -->
+							<label for="idNombre_p">Nombre del Producto</label> <input
+								type="text" class="form-control" name="Nombre_p" id="idNombre_p" placeholder="Nombre del producto"
+								th:field="*{Nombre_p}" required>
+
+						</div>
+						<div class="form-group col-md-6">
+							<label for="idprecio_p">Precio del Producto</label> <input type="number"
+								class="form-control" name="precio_p" id="idprecio_p" step="any"
+								th:field="*{precio_p}" required min="40">
+						</div>
+					</div>
+					
+					<div class="form-group">
+    <label for="exampleFormControlTextarea1">Descripción del Producto</label>
+    <textarea class="form-control" name="descripcion_p"
+							id="iddescripcion_p" th:field="*{descripcion_p}" rows="3"  placeholder="Descripción del producto" required   maxlength="550"></textarea>
+  </div>
+					
+					<label for="idUriImagen">Enlace Imagen</label> <input type="text"
+							class="form-control" name="uriImagen" id="idUriImagen"
+							th:field="*{uriImagen}" required>
+					
+					
+					<div class="form-group">
+						<label for="idstock_p">Stock</label> <input type="number"
+							class="form-control" name="stock_p" id="idstock_p"
+							th:field="*{stock_p}" max="100" min="3" required>
+
+					</div>
+					
+
+					<br>
+				<br>
+
+				<button type="submit" class="btn btn-primary" th:text="${btn}"></button>
+
+			</form>
+
+		</div>
+		
+		
+		
+		<br>
+		
+		<div class="jumbotron ">
+		<h1>Listar Productos</h1>
+		<br>
+				<table class="table table-dark" >
+					<thead >
+						<tr>
+							<th scope="col">Id</th>
+							<th scope="col">Nombre</th>
+							<th scope="col">Precio</th>
+							<th scope="col">Stock</th>
+							<th scope="col">Acciones </th>
+						</tr>
+					</thead>
+					<tbody th:each="producto : ${productos}">
+						<tr>
+							<th scope="row" th:text="${producto.id}"></th>
+							<td th:text="${producto.Nombre_p}"></td>
+							<td th:text="${producto.precio_p}"></td>
+							<td th:text="${producto.stock_p}"></td>
+	<!--  --><td> <a  th:href="@{/App/Editar/}+ ${producto.id}" class="btn btn-success">Editar</a> 
+<!--   -->			<a th:href="@{/App/Eliminar/}+ ${producto.id}" class="btn btn-danger">Eliminar</a></td>
+						</tr>
+
+					</tbody>
+				</table>
+
+
+			</div>
+
+	</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+
+
+	
+	
+	<script src="/bootstrap/jquery.slim.min.js"></script>
+	<script src="/bootstrap/bootstrap.bundle.min.js"></script>
+	<!-- ESTO ES EL FOOTER -->
+<footer class="piePage" th:fragment="footer">
+		<div class="grupo--1">
+			<div class="box-footer"><figure>
+				<a href="#"><img src="/images/logo_sin_fondo.png" alt=""></a>
+			</figure></div>
+			<div class="box-footer">
+				<h2>SOBRE NOSOTROS</h2>
+				<p>Somos un grupo empresarial peruano con un proyecto innovador que consiste en implementar en una pagina web la venta, reparacion e instalacion de paneles solares en hogares, empresas, centros de estudios, etc. Para asi poder cubrir la necesidad de cualquier usuario y que pueda tener energia disponible cuando lo necesite, ya sea de noche o si la red electrica cae con frecuencia.</p>
+			</div>
+			<div class="box-footer">
+				<h2>SIGUENOS</h2>
+				<div class="red-social">
+					<a href="#" class="fa fa-facebook"></a>
+					<a href="#" class="fa fa-instagram"></a>
+					<a href="#" class="fa fa-twitter"></a>
+				</div>
+		</div>
+	</div>
+	<div class="grupo--2"><small>&copy; 2022 <b>Solarsi</b> - Todos los derechos reservados</small></div>
+<script src="https://kit.fontawesome.com/94e06964eb.js" crossorigin="anonymous"></script>
+	</footer>
+	
+	
+<!-- ESTO ES EL FOOTER -->
+
+
+
+
+</body>
+
+</html>

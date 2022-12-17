@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org">
+<head th:fragment="head">
+<meta charset="UTF-8">
+<link rel="shortcut icon" type="image/png"
+	th:href="@{/images/favicon.png}" />
+<link rel="stylesheet" href="/css/inicio2.css">
+<link rel="stylesheet" href="/bootstrap/bootstrap.min.css">
+<title>Inicio</title>
+</head>
+<body>
+	<div class="contenedor">
+		<!-- Encabezado -->
+		<header th:fragment="header" class="header3">
+			<div class="contenedor-logo">
+				<section id="logo">
+					<img th:src="@{'/images/Dark.png'}" alt="Logo">
+				</section>
+			</div>
+			<nav style="justify-content: center; align-content: center; align-items: center;">
+				<ul style="justify-content: center; align-content: center;"	>
+					<li><a href="/App/inicio">Inicio</a></li>
+					<li><a href="/App/Productos">Productos</a></li>
+					<li><a href="/App/Login">Login</a></li>
+					<li><a href="#">¿Quiénes somos?</a></li>
+					<li><a href="/App/CarritodeCompras">Carrito de Compras</a></li>
+					<li><a href="/App/Integrantes">Integrantes</a></li>
+				
+				</ul>
+			</nav>
+		</header>
+		</div>
+
+		<div class="container">
+
+
+		<!-- Page Heading/Breadcrumbs -->
+		<div class="DetTit">
+		<h1 class="h1">Detalles del Producto</h1>
+	</div>
+		<ol class="breadcrumb">
+			<li class="breadcrumb-item"><a th:href="@{/App/Productos}">Productos</a></li>
+			<li class="breadcrumb-item active" th:text="${producto.Nombre_p}"></li>
+		</ol>
+
+		<!-- Blog Post -->
+		<div class="card mb-4">
+			<div class="card-body">
+				<div class="row">
+					<div class="col-lg-6">
+					<div class="centrarIMG">
+						<img class="img-fluid" th:src="${producto.uriImagen}" width="320" height="370" 
+							 alt="">
+						</div>
+					</div>
+					<div class="col-lg-6">
+						<form th:action="@{/App/AddCar}" method="post">
+						
+						<input type="hidden" th:value="${producto.id}" name="id">
+						
+							<h2 class="card-title" th:text="${producto.Nombre_p}"></h2>
+
+							<ul class="list-group">
+								<li class="list-group-item"><h5 th:text=" 'Precio: S/.' + ${producto.precio_p}">Precio del Producto</h5></li>
+								<li class="list-group-item">
+									<p th:text=" 'Descripción: ' + ${producto.descripcion_p} "></p>
+									
+								</li>
+								<li class="list-group-item"><h6>
+										Cantidad: <input type="number" id="cantidad" name="cantidad" style="text-align: center;"
+											autocomplete="off" min="1" max="5" value="1">
+									</h6></li>
+							</ul>
+
+							<br>
+							<div class="row" style=" align-items: center;">
+								<div class="col"><button type="submit"  class="btn btn-outline-success">Añadir al
+								carrito</button>
+</div>
+								<div class="col" style="color: gray; font-size: 16px" th:text=" 'Stock: ' + ${producto.stock_p}"></div>
+							</div>
+
+							
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+
+
+	</div>
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+
+		<!-- Información -->
+		
+	<footer class="piePage" th:fragment="footer">
+		<div class="grupo--1">
+			<div class="box-footer"><figure>
+				<a href="#"><img src="/images/logo_sin_fondo.png" alt=""></a>
+			</figure></div>
+			<div class="box-footer">
+				<h2>SOBRE NOSOTROS</h2>
+				<p>Somos un grupo empresarial peruano con un proyecto innovador que consiste en implementar en una pagina web la venta, reparacion e instalacion de paneles solares en hogares, empresas, centros de estudios, etc. Para asi poder cubrir la necesidad de cualquier usuario y que pueda tener energia disponible cuando lo necesite, ya sea de noche o si la red electrica cae con frecuencia.</p>
+			</div>
+			<div class="box-footer">
+				<h2>SIGUENOS</h2>
+				<div class="red-social">
+					<a href="#" class="fa fa-facebook"></a>
+					<a href="#" class="fa fa-instagram"></a>
+					<a href="#" class="fa fa-twitter"></a>
+				</div>
+		</div>
+	</div>
+	<div class="grupo--2"><small>&copy; 2022 <b>Solarsi</b> - Todos los derechos reservados</small></div>
+<script src="https://kit.fontawesome.com/94e06964eb.js" crossorigin="anonymous"></script>
+	</footer>
+	</div>
+</body>
+</html>

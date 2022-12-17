@@ -1,0 +1,229 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;800&display=swap');
+*{
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    font-family: 'Open Sans';
+}
+header{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 0;
+}
+body{
+    background-color: white;
+    font-size: 14px;
+}
+.contenedor-global{
+  width: 90%;
+  height:auto;
+  margin:0px auto;   
+
+ min-height: 600px;
+}
+.contenedor{
+    max-width: 1100px;
+    padding: 0 20px;
+    margin: auto;
+}
+.pago-container{
+	
+	display: flex;
+	
+	justify-content: space-between;
+	
+}
+.container-pay{
+	
+	display: flex;
+	flex-flow: row wrap;
+    flex: 1 1 60%;	
+    justify-content: center;
+    margin-right: 20px;
+    max-width: 550px;
+}
+
+.hijo-pago{
+	
+	display:flex;
+	flex-flow: column nowrap;
+	
+}
+
+.hijo-pago a{
+	
+	
+	width: 100%;
+}
+
+.hijo-pago button{
+	
+	
+	width: 100%;
+}
+.titulo-pay{
+	
+	display: flex;	
+	flex: 1 1 100%;
+	justify-content: top;
+}
+.list-group a{
+	width: 100%;
+}
+
+.btn2 {
+	
+	display: flex;
+	flex: 3 1 auto;
+	height: 35px;
+	width: 20px;
+	text-align: center;
+	justify-content: center;
+}
+.container-logo{
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+
+}
+
+.dropbtn {
+  background-color: #4CAF50;
+  color: white;
+  padding: 3px;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+}
+
+
+/* The container <div> - needed to position the dropdown content */
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+/* Dropdown Content (Hidden by Default) */
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+/* Links inside the dropdown */
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+/* Change color of dropdown links on hover */
+.dropdown-content a:hover {background-color: #f1f1f1}
+
+/* Show the dropdown menu on hover */
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+/* Change the background color of the dropdown button when the dropdown content is shown */
+.dropdown:hover .dropbtn {
+  background-color: #3e8e41;
+}
+nav ul{
+    display: flex;
+    list-style: none;
+
+}
+nav ul li{
+    margin: 0 20px;
+}
+nav ul li a{
+    color: #000;
+    font-weight: bold;
+    text-decoration: none;
+}
+nav ul li a:hover{
+    color: aquamarine;
+}
+/*PARA LA BARRA DE NAVEGACIÓN*/
+
+
+.piePage{
+	width: 100%;
+	background-color: #0a141d;
+	text-align: center;
+	margin-top: 15px;
+}
+
+.piePage .grupo--1{
+	width: 100%;
+	max-width: 1200px;
+	margin: auto;
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	grid-gap: 50px;
+	padding: 45px 0px;
+}
+.piePage .grupo--1 .box-footer figure{
+	width: 100%;
+	height: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+
+}
+.piePage .grupo--1 .box-footer figure img{
+	width: 250px;
+}
+
+.piePage .grupo--1 .box-footer h2{
+	color: #ffff;
+	margin-bottom: 25px;
+	font-size: 20px;
+}
+
+.piePage .grupo--1 .box-footer p{
+	color:#efefef;
+	margin-bottom: 10px;
+}
+
+.piePage .grupo--1 .red-social a{
+	display: inline-block;
+	text-decoration: none;
+	width: 45px;
+	height: 45px;
+	line-height: 45px;
+	color: #ffff;
+	margin-right: 10px;
+	background-color: #0d2033;
+	text-align: center;
+	transition:  all 300ms ease;
+}
+.piePage .grupo--1 .red-social a:hover{
+	color: aqua;
+}
+
+.piePage .grupo--2{
+	background-color: #0a1a2a;
+	padding: 15px 10px;
+	text-align: center;
+	color: #ffff;
+
+}
+.piePage .grupo--2 small{
+	font-size: 15px;
+}
+
+@media screen and (max-width: 800px) {
+	.piePage .grupo--1{
+		width: 90%; 
+		grid-template-columns: repeat(1, 1fr);
+		grid-gap: 30px;
+		padding: 35px 0px;
+	}
+}
